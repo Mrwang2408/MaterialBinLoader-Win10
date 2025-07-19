@@ -120,23 +120,22 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
 void* findAddr(std::string name) {	
 	switch (do_hash(name.c_str()))
 	{
+	case do_hash("ResourcePackManager::ResourcePackManager"): {
+		//FIND_ADDR("1.21.60", "4C 8B DC 49 89 5B 18 49 89 53 10 49 89 4B 08 55 56 57 41 56 41 57 48 83 EC 70 41 0F B6 E9 4D 8B F0 48 8B F2 48 8B F9 49 8D 43 98 49 89 43 88 45");
+		FIND_ADDR("1.21.50", "4C 8B DC 53 55 56 57 41 54 41 56 41 57 48 81 EC A0 00 00 00 41 0F B6 E9");
+		FIND_ADDR("1.21.60", "4C 8B DC 49 89 5B ? 49 89 53 ? 49 89 4B ? 55 56 57 41 56");
+		////////////////////////error/////////////////////
+		CreateConsole();
+		std::cout << "ResourcePackManager::ResourcePackManager address not found!!!" << std::endl;
+	}
 	case do_hash("AppPlatform::readAssetFile"): {
-		FIND_ADDR("1.19.40-1.19.81", "48 89 5C 24 ? 55 56 57 41 56 41 57 48 8D 6C 24 ? 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 45 70 49 8B C0 ");
-		FIND_ADDR("1.20.0.23", "48 89 5C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 ? 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 45 20 49 8B C0");
-		FIND_ADDR("1.20.30", "48 89 5C 24 ? 55 56 57 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 85 ? ? ? ? 49 8B C0");
-		FIND_ADDR("1.20.30.20", "48 89 5C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 85 ? ? ? ? 49 8B C0 48 8B FA");
+		//FIND_ADDR("1.21.60", "48 89 5C 24 08 48 89 7C 24 18 55 48 8D 6C 24 A0 48 81 EC 60 01 00 00 48 8B 05 62 11 30 08 48 33 C4 48 89 45 50 48 8B FA 48 89 55 B0 0F 57 C9 F3");
+		FIND_ADDR("1.21.50", "48 89 5C 24 ? 55 56 57 48 8D 6C 24 ? 48 81 EC 50 01 00 00 48 8B 05 ? ? ? ? 48 33 C4 48 89 45 ? 49 8B F0 48 8B FA 48 89 55 ? 0F 57 C9 F3 0F 7F 4D ? 0F B6 5C 24 ? 80 E3 A1 80 CB 21 BA 28 00 00 00 65 48 8B 04 25 ? ? ? ? 48 8B 08 8B 04 0A 39 05 ? ? ? ? 0F 8F ? ? ? ? 48 8B 05 ? ? ? ? C7 44 24 ? ? ? ? ? 88 5C 24 ? 4C 8D");
+		FIND_ADDR("1.21.60", "48 89 5C 24 ? 48 89 7C 24 ? 55 48 8D 6C 24 ? 48 81 EC 60 01 00 00 48 8B 05 ? ? ? ? 48 33 C4 48 89 45 ? 48 8B FA");
 		////////////////////////error/////////////////////
 		CreateConsole();
 		std::cout << "AppPlatform::readAssetFile address not found!!!" << std::endl;
 		break;
-	}
-	case do_hash("ResourcePackManager::ResourcePackManager"): {
-		FIND_ADDR("?????", "48 89 ?? ?? ?? 55 56 57 41 54 41 55 41 56 41 57 48 8D ?? ?? ?? 48 ?? ?? ?? ?? ?? ?? 41 0F B6 F1 49 8B D8 4C 8B F2 48 8B F9 48 89 ?? ?? 48 89 ?? ?? 48 8D ?? ?? 48 89 ?? ?? 45 33 ED 4C 89 ?? ?? 48 8B ?? ?? 48 85 C9 74 ?? 48 8B 01 48 8D ?? ?? 48 8B 00 FF ?? ?? ?? ?? ??");
-		FIND_ADDR("1.20.10.23", "48 89 5C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 ? 48 81 EC ? ? ? ? 45 0F B6 F1 49 8B F8 48 8B F2 48 8B D9");
-		FIND_ADDR("1.20.30.21", "4C 8B DC 53 55 56 57 41 56 48 81 EC ? ? ? ? 41 0F B6 E9 49 8B D8 48 8B F2 48 8B F9");
-		////////////////////////error/////////////////////
-		CreateConsole();
-		std::cout << "ResourcePackManager::ResourcePackManager address not found!!!" << std::endl;
 	}
 	default:
 		break;
